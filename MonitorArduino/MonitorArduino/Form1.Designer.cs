@@ -33,9 +33,10 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.btnEnviar = new System.Windows.Forms.Button();
             this.txtEnviar = new System.Windows.Forms.TextBox();
-            this.txtReceber = new System.Windows.Forms.TextBox();
             this.timerCOM = new System.Windows.Forms.Timer(this.components);
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.LstReceber = new System.Windows.Forms.ListBox();
+            this.ChkLigaLed = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // btnConectar
@@ -74,15 +75,6 @@
             this.txtEnviar.Size = new System.Drawing.Size(224, 20);
             this.txtEnviar.TabIndex = 3;
             // 
-            // txtReceber
-            // 
-            this.txtReceber.Location = new System.Drawing.Point(12, 85);
-            this.txtReceber.Multiline = true;
-            this.txtReceber.Name = "txtReceber";
-            this.txtReceber.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtReceber.Size = new System.Drawing.Size(316, 189);
-            this.txtReceber.TabIndex = 4;
-            // 
             // timerCOM
             // 
             this.timerCOM.Interval = 1000;
@@ -92,12 +84,32 @@
             // 
             this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort1_DataReceived);
             // 
+            // LstReceber
+            // 
+            this.LstReceber.FormattingEnabled = true;
+            this.LstReceber.Location = new System.Drawing.Point(12, 85);
+            this.LstReceber.Name = "LstReceber";
+            this.LstReceber.Size = new System.Drawing.Size(315, 186);
+            this.LstReceber.TabIndex = 4;
+            // 
+            // ChkLigaLed
+            // 
+            this.ChkLigaLed.AutoSize = true;
+            this.ChkLigaLed.Location = new System.Drawing.Point(248, 16);
+            this.ChkLigaLed.Name = "ChkLigaLed";
+            this.ChkLigaLed.Size = new System.Drawing.Size(70, 17);
+            this.ChkLigaLed.TabIndex = 5;
+            this.ChkLigaLed.Text = "Liga LED";
+            this.ChkLigaLed.UseVisualStyleBackColor = true;
+            this.ChkLigaLed.CheckedChanged += new System.EventHandler(this.ChkLigaLed_CheckedChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 286);
-            this.Controls.Add(this.txtReceber);
+            this.Controls.Add(this.ChkLigaLed);
+            this.Controls.Add(this.LstReceber);
             this.Controls.Add(this.txtEnviar);
             this.Controls.Add(this.btnEnviar);
             this.Controls.Add(this.comboBox1);
@@ -118,9 +130,10 @@
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Button btnEnviar;
         private System.Windows.Forms.TextBox txtEnviar;
-        private System.Windows.Forms.TextBox txtReceber;
         private System.Windows.Forms.Timer timerCOM;
         private System.IO.Ports.SerialPort serialPort1;
+        private System.Windows.Forms.ListBox LstReceber;
+        private System.Windows.Forms.CheckBox ChkLigaLed;
     }
 }
 

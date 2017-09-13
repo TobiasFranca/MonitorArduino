@@ -131,7 +131,23 @@ namespace MonitorArduino
 
         private void TrataDadoRecebido(object sender, EventArgs e)
         {
-            txtReceber.AppendText(RxString);
+            string linha = DateTime.Now.ToString() + " - " + RxString;
+            LstReceber.Items.Add(linha);           
+        }
+
+        private void ChkLigaLed_CheckedChanged(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == true)          //porta está aberta
+            {
+                if(ChkLigaLed.Checked == true)
+                {
+                    serialPort1.Write("A");  //Comando para ligar o led
+                }
+                else
+                {
+                    serialPort1.Write("B");  //Comando para desligar o led
+                }
+            }
         }
     }
 }
