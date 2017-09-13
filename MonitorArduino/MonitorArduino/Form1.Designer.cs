@@ -42,33 +42,35 @@
             // 
             this.btnConectar.Location = new System.Drawing.Point(12, 12);
             this.btnConectar.Name = "btnConectar";
-            this.btnConectar.Size = new System.Drawing.Size(75, 23);
+            this.btnConectar.Size = new System.Drawing.Size(86, 23);
             this.btnConectar.TabIndex = 0;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = true;
+            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(93, 14);
+            this.comboBox1.Location = new System.Drawing.Point(104, 14);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(106, 21);
+            this.comboBox1.Size = new System.Drawing.Size(136, 21);
             this.comboBox1.TabIndex = 1;
             // 
             // btnEnviar
             // 
             this.btnEnviar.Location = new System.Drawing.Point(12, 56);
             this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(75, 23);
+            this.btnEnviar.Size = new System.Drawing.Size(86, 23);
             this.btnEnviar.TabIndex = 2;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
             // 
             // txtEnviar
             // 
-            this.txtEnviar.Location = new System.Drawing.Point(93, 58);
+            this.txtEnviar.Location = new System.Drawing.Point(104, 58);
             this.txtEnviar.Name = "txtEnviar";
-            this.txtEnviar.Size = new System.Drawing.Size(235, 20);
+            this.txtEnviar.Size = new System.Drawing.Size(224, 20);
             this.txtEnviar.TabIndex = 3;
             // 
             // txtReceber
@@ -83,6 +85,7 @@
             // timerCOM
             // 
             this.timerCOM.Interval = 1000;
+            this.timerCOM.Tick += new System.EventHandler(this.timerCOM_Tick);
             // 
             // Form1
             // 
@@ -98,6 +101,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Monitor Arduino";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

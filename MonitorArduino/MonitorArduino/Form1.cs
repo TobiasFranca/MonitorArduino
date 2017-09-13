@@ -15,6 +15,7 @@ namespace MonitorArduino
         public Form1()
         {
             InitializeComponent();
+            timerCOM.Enabled = true;
         }
 
         private void atualizaListaCOMs()
@@ -44,7 +45,7 @@ namespace MonitorArduino
             //Se não foi detectado diferença
             if (quantDiferente == false)
             {
-                return;                     //retorna
+                return; //retorna
             }
 
             //limpa comboBox
@@ -58,5 +59,60 @@ namespace MonitorArduino
             //seleciona a primeira posição da lista
             comboBox1.SelectedIndex = 0;
         }
+
+        private void timerCOM_Tick(object sender, EventArgs e)
+        {
+            atualizaListaCOMs();
+        }
+
+        private void btnConectar_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == false)
+            {
+                try
+                {
+                    serialPort1.PortName = comboBox1.Items[comboBox1.SelectedIndex].ToString();
+                    serialPort1.Open();
+
+                }
+                catch
+                {
+                    return;
+
+                }
+                if (serialPort1.IsOpen)
+                {
+                    btnConectar.Text = "Desconectar";
+                    comboBox1.Enabled = false;
+
+                }
+            }
+            else
+            {
+
+                try
+                {
+                    serialPort1.Close();
+                    comboBox1.Enabled = true;
+                    btnConectar.Text = "Conectar";
+                }
+                catch
+                {
+                    return;
+                }
+
+            }
+
+        }
+
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (serialPort1.IsOpen == true)  // se porta aberta
+            {
+                serialPort1.Close();
+            }
+        }
+
+
     }
 }
