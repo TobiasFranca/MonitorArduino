@@ -12,6 +12,8 @@ namespace MonitorArduino
 {
     public partial class Form1 : Form
     {
+        string RxString;
+
         public Form1()
         {
             InitializeComponent();
@@ -113,6 +115,23 @@ namespace MonitorArduino
             }
         }
 
+        private void BtnEnviar_Click(object sender, EventArgs e)
+        {
+            if (serialPort1.IsOpen == true)          //porta está aberta
+            {
+                serialPort1.Write(txtEnviar.Text);  //envia o texto presente no textbox Enviar
+            }
+        }
 
+        private void SerialPort1_DataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            RxString = serialPort1.ReadExisting();              //le o dado disponível na serial
+            Invoke(new EventHandler(TrataDadoRecebido)); //chama outra thread para escrever o dado no text box
+        }
+
+        private void TrataDadoRecebido(object sender, EventArgs e)
+        {
+            txtReceber.AppendText(RxString);
+        }
     }
 }

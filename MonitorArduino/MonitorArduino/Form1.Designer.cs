@@ -65,6 +65,7 @@
             this.btnEnviar.TabIndex = 2;
             this.btnEnviar.Text = "Enviar";
             this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.BtnEnviar_Click);
             // 
             // txtEnviar
             // 
@@ -86,6 +87,10 @@
             // 
             this.timerCOM.Interval = 1000;
             this.timerCOM.Tick += new System.EventHandler(this.TimerCOM_Tick);
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.SerialPort1_DataReceived);
             // 
             // Form1
             // 
