@@ -18,7 +18,7 @@ namespace MonitorArduino
             timerCOM.Enabled = true;
         }
 
-        private void atualizaListaCOMs()
+        private void AtualizaListaCOMs()
         {
             int i;
             bool quantDiferente; //flag para sinalizar que a quantidade de portas mudou
@@ -60,12 +60,12 @@ namespace MonitorArduino
             comboBox1.SelectedIndex = 0;
         }
 
-        private void timerCOM_Tick(object sender, EventArgs e)
+        private void TimerCOM_Tick(object sender, EventArgs e)
         {
-            atualizaListaCOMs();
+            AtualizaListaCOMs();
         }
 
-        private void btnConectar_Click(object sender, EventArgs e)
+        private void BtnConectar_Click(object sender, EventArgs e)
         {
             if (serialPort1.IsOpen == false)
             {

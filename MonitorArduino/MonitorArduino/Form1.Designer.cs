@@ -46,7 +46,7 @@
             this.btnConectar.TabIndex = 0;
             this.btnConectar.Text = "Conectar";
             this.btnConectar.UseVisualStyleBackColor = true;
-            this.btnConectar.Click += new System.EventHandler(this.btnConectar_Click);
+            this.btnConectar.Click += new System.EventHandler(this.BtnConectar_Click);
             // 
             // comboBox1
             // 
@@ -85,7 +85,7 @@
             // timerCOM
             // 
             this.timerCOM.Interval = 1000;
-            this.timerCOM.Tick += new System.EventHandler(this.timerCOM_Tick);
+            this.timerCOM.Tick += new System.EventHandler(this.TimerCOM_Tick);
             // 
             // Form1
             // 
